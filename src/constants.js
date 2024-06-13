@@ -6,3 +6,6 @@ export const KEY_COLORS = [
   "#4d88f9",
   "#b4a8ff",
 ];
+
+
+export const NULL = "#FFFFF";

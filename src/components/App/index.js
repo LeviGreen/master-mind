@@ -2,22 +2,57 @@ import "./index.css";
 import ColorKeyboard from "../ColorKeyboard";
 import Inputs from "../Inputs";
 import { useState } from "react";
+import { NULL } from "../../constants";
 
 function App() {
-  // const [color, setColor] = useState(null);
-  // const [row, setRow] = useState(0);
-  // const [column, setColumn] = useState(0);
+  let [row, setRow] = useState(1);
+  let [column, setColumn] = useState(0);
+  let [grid, setGrid] = useState([
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL],
+    [NULL, NULL, NULL, NULL]
+  ]);
 
   const onColorClick = (color) => {
-    console.log(`${color} clicked!`);
+    if (column < 4) {
+      let newGrid = grid;
+      newGrid[row][column] = color;
+      setGrid(newGrid);
+      setColumn(column + 1);
+    }
   }
 
   const onSubmit = () => {
-    console.log("Enter clicked!");
+    // getGuessOutput();
+
+    let isCorrectGuess = false
+
+    if (isCorrectGuess == true) {
+      console.log("You win!")
+    } else if (row < 10) {
+      setRow(row + 1);
+      setColumn(0);
+    } else {
+      console.log("You lose!")
+    }
   }
 
   const onDelete = () => {
-    console.log("Delete clicked!");
+    if (column > 0 && column <= 4) {
+
+      let newGrid = grid;
+      newGrid[row][column - 1] = NULL;
+      setGrid(newGrid);
+      setColumn(column - 1);
+    }
   }
 
   return (
@@ -27,14 +62,16 @@ function App() {
       </header>
       <main className="App-module-game">
         <div className="board-container">
-          <Inputs/>
+          <Inputs grid={grid} />
           <div className="outputs"></div>
         </div>
         <div className="color-keyboard-container">
           <ColorKeyboard
-            onColorClick={(color) => onColorClick(color)}
-            onSubmit={() => onSubmit()}
-            onDelete={() => onDelete()}
+            onColorClick={ (color) => onColorClick(color) }
+            onSubmit={ () => onSubmit() }
+            onDelete={ () => onDelete() }
+            disableSubmit={ grid[row].includes(NULL) }
+            disableDelete={ column === 0 }
           />
         </div>
       </main>
