@@ -1,0 +1,32 @@
+.inputs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input-cell {
+  border: 2px solid #d3d6da;
+  font-family: "nyt-franklin";
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: bold;
+  vertical-align: middle;
+  box-sizing: border-box;
+  color: var(--tile-text-color);
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
