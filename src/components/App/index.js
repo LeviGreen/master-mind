@@ -11,6 +11,7 @@ function App() {
   let [column, setColumn] = useState(0);
   let [grid, setGrid] = useState(resetBoard());
   let [clues, setClues] = useState(resetClues());
+  let [gameOver, setGameOver] = useState(false);
 
   const onColorClick = (color) => {
     if (column < 4) {
@@ -29,8 +30,10 @@ function App() {
       console.log("You win!");
       clues[row] = clueCode;
       setColumn(0);
+      setGameOver(true);
     } else if (row === 10) {
       console.log("You lose!");
+      setGameOver(true);
     } else {
       setRow(row + 1);
       setColumn(0);
@@ -52,7 +55,7 @@ function App() {
       </header>
       <main className="App-module-game">
         <div className="board-container">
-          <Inputs grid={grid} />
+          <Inputs grid={grid} gameOver={gameOver} />
           <Outputs clues={clues} />
         </div>
         <div className="color-keyboard-container">

@@ -1,10 +1,10 @@
 import "./index.css";
 import InputRow from "./inputRow";
 
-function Inputs({ grid }) {
+function Inputs({ grid, gameOver }) {
   return (
     <div className="inputs">
-      <InputRow row={grid[0]}/>
+      <InputRow row={grid[0]} gameOver={gameOver}/>
       <InputRow row={grid[1]}/>
       <InputRow row={grid[2]}/>
       <InputRow row={grid[3]}/>
