@@ -1,0 +1,25 @@
+.outputs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.output-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #d3d6da;
+  width: 48px;
+  height: 48px;
+}
+
+.output-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #d3d6da;
+  margin: 5px;
+}
