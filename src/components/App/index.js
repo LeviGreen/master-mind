@@ -27,13 +27,15 @@ function App() {
 
     if (clueCode.length === 4 && clueCode.every((value) => value === NULL)){
       console.log("You win!");
+      clues[row] = clueCode;
+      setColumn(0);
     } else if (row === 10) {
       console.log("You lose!");
+    } else {
+      setRow(row + 1);
+      setColumn(0);
+      clues[row] = clueCode;
     }
-
-    setRow(row + 1);
-    setColumn(0);
-    clues[row] = clueCode;
   }
 
   const onDelete = () => {
