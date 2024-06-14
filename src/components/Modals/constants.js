@@ -8,3 +8,11 @@ export const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
+
+export const confettiConfig = {
+  angle: 90,
+  spread: 360,
+  startVelocity: 20,
+  elementCount: 1000,
+  decay: 0.9,
+};
