@@ -7,6 +7,15 @@ export const KEY_COLORS = [
   "#b4a8ff",
 ];
 
+export const KEY_TEXT = [
+  "a",
+  "s",
+  "d",
+  "z",
+  "x",
+  "c",
+];
+
 export const NULL = "#ffffff";
 export const GRAY = "#d3d6da";
 export const BLACK = "#000000";
