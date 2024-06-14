@@ -8,4 +8,4 @@ export const KEY_COLORS = [
 ];
 
 
-export const NULL = "#FFFFF";
+export const NULL = "#ffffff";
