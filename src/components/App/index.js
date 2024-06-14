@@ -3,23 +3,12 @@ import ColorKeyboard from "../ColorKeyboard";
 import Inputs from "../Inputs";
 import { useState } from "react";
 import { NULL } from "../../constants";
+import { resetBoard } from "../../helpers";
 
 function App() {
   let [row, setRow] = useState(1);
   let [column, setColumn] = useState(0);
-  let [grid, setGrid] = useState([
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL]
-  ]);
+  let [grid, setGrid] = useState(resetBoard());
 
   const onColorClick = (color) => {
     if (column < 4) {
