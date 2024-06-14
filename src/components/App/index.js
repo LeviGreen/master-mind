@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./index.css";
 import ColorKeyboard from "../ColorKeyboard";
 import Inputs from "../Inputs";
+import RulesModal from "../Modals/rulesModal";
 import Outputs from "../Outputs";
 import { NULL } from "../../constants";
 import { resetBoard, resetClues, getClue } from "../../helpers";
@@ -12,6 +13,7 @@ function App() {
   let [grid, setGrid] = useState(resetBoard());
   let [clues, setClues] = useState(resetClues());
   let [gameOver, setGameOver] = useState(false);
+  let [showRules, setShowRules] = useState(true);
 
   const onColorClick = (color) => {
     if (column < 4) {
@@ -50,6 +52,7 @@ function App() {
 
   return (
     <div className="App">
+      <RulesModal showRules={showRules} setShowRules={setShowRules}/>
       <header className="App-header">
         <h1>Master Mind</h1>
       </header>
