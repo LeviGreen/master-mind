@@ -1,11 +1,11 @@
 import "./index.css";
-import { BLACK } from "../../constants";
+import { GRAY } from "../../constants";
 
 function InputRow({ row, gameOver = true }) {
-  let row0 = gameOver ? row[0] : BLACK;
-  let row1 = gameOver ? row[1] : BLACK;
-  let row2 = gameOver ? row[2] : BLACK;
-  let row3 = gameOver ? row[3] : BLACK;
+  let row0 = gameOver ? row[0] : GRAY;
+  let row1 = gameOver ? row[1] : GRAY;
+  let row2 = gameOver ? row[2] : GRAY;
+  let row3 = gameOver ? row[3] : GRAY;
 
   return (
     <div className="input-row">
