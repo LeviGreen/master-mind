@@ -18,6 +18,7 @@ function RulesModal( { showRules, setShowRules } ) {
         <p>1. The code is a 4-color sequence.</p>
         <p>2. The colors can be in any order.</p>
         <p>3. The colors can be any of the 6 available colors.</p>
+        <p>4. Duplicate colors are allowed.</p>
         <h3>Scoring</h3>
         <p>Black peg: Correct color but wrong position.</p>
         <p>White peg: Correct color and position.</p>
