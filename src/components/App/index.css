@@ -30,6 +30,7 @@
   flex-grow: 1;
   overflow: hidden;
   padding: 10px;
+  gap: 10px;
 }
 
 .color-keyboard-container {
