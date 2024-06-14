@@ -4,6 +4,7 @@ import ColorKeyboard from "../ColorKeyboard";
 import Inputs from "../Inputs";
 import RulesModal from "../Modals/rulesModal";
 import WinModal from "../Modals/winModal";
+import LoseModal from "../Modals/loseModal";
 import Outputs from "../Outputs";
 import { NULL } from "../../constants";
 import { resetBoard, resetClues, getClue } from "../../helpers";
@@ -16,6 +17,7 @@ function App() {
   let [gameOver, setGameOver] = useState(false);
   let [showRules, setShowRules] = useState(true);
   let [showWin, setShowWin] = useState(false);
+  let [showLose, setShowLose] = useState(false);
 
   const onColorClick = (color) => {
     if (column < 4) {
@@ -36,7 +38,7 @@ function App() {
       setColumn(0);
       setGameOver(true);
     } else if (row === 10) {
-      console.log("You lose!");
+      setShowLose(true)
       setGameOver(true);
     } else {
       setRow(row + 1);
@@ -53,7 +55,9 @@ function App() {
   }
 
   const resetGame = () => {
+    setShowLose(false);
     setShowWin(false);
+    setShowRules(true);
     setRow(1);
     setColumn(0);
     setGrid(resetBoard());
@@ -65,6 +69,7 @@ function App() {
     <div className="App">
       <RulesModal showRules={showRules} setShowRules={setShowRules}/>
       <WinModal showWin={showWin} resetGame={resetGame} answer={grid[0]} rowCount={row}/>
+      <LoseModal showLose={showLose} resetGame={resetGame} answer={grid[0]}/>
       <header className="App-header">
         <h1>Master Mind</h1>
       </header>
