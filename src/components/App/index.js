@@ -75,7 +75,7 @@ function App() {
       </header>
       <main className="App-module-game">
         <div className="board-container">
-          <Inputs grid={grid} gameOver={gameOver} />
+          <Inputs grid={grid} gameOver={gameOver} setColumn={setColumn} row={row}/>
           <Outputs clues={clues} />
         </div>
         <div className="color-keyboard-container">
