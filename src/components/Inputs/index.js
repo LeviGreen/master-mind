@@ -4,7 +4,7 @@ import InputRow from "./inputRow";
 function Inputs({ grid, gameOver, setColumn, row }) {
   return (
     <div className="inputs">
-      <InputRow row={grid[0]} gameOver={gameOver} setColumn={setColumn}/>
+      <InputRow row={grid[0]} gameOver={gameOver} setColumn={setColumn} disabled={true}/>
       <InputRow row={grid[1]} setColumn={setColumn} disabled={row != 1}/>
       <InputRow row={grid[2]} setColumn={setColumn} disabled={row != 2}/>
       <InputRow row={grid[3]} setColumn={setColumn} disabled={row != 3}/>
