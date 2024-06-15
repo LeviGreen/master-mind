@@ -35,7 +35,6 @@ function App() {
     if (clueCode.length === 4 && clueCode.every((value) => value === NULL)){
       setShowWin(true);
       clues[row] = clueCode;
-      setColumn(0);
       setGameOver(true);
     } else if (row === 10) {
       setShowLose(true)
@@ -48,7 +47,7 @@ function App() {
   }
 
   const onDelete = () => {
-    if (column >= 0 && column < 4) {
+    if (column >= 0 && column <= 4) {
       grid[row][column] = NULL;
       setColumn(column - 1);
     }
@@ -76,7 +75,7 @@ function App() {
       <main className="App-module-game">
         <div className="board-container">
           <Inputs grid={grid} gameOver={gameOver} setColumn={setColumn} row={row}/>
-          <Outputs clues={clues} />
+          <Outputs clues={clues} row={row}/>
         </div>
         <div className="color-keyboard-container">
           <ColorKeyboard
@@ -84,7 +83,7 @@ function App() {
             onSubmit={ () => onSubmit() }
             onDelete={ () => onDelete() }
             disableSubmit={ grid[row].includes(NULL) }
-            disableDelete={ grid[row][column] === NULL}
+            disableDelete={ grid[row][column] === NULL }
           />
         </div>
       </main>
