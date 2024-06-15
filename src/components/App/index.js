@@ -20,7 +20,7 @@ function App() {
   let [showLose, setShowLose] = useState(false);
 
   const onColorClick = (color) => {
-    if (column < 4) {
+    if (column >= 0 && column < 4) {
       grid[row][column] = color;
       setGrid(grid);
       setColumn(column + 1);
@@ -48,8 +48,8 @@ function App() {
   }
 
   const onDelete = () => {
-    if (column > 0 && column <= 4) {
-      grid[row][column - 1] = NULL;
+    if (column >= 0 && column < 4) {
+      grid[row][column] = NULL;
       setColumn(column - 1);
     }
   }
@@ -75,7 +75,7 @@ function App() {
       </header>
       <main className="App-module-game">
         <div className="board-container">
-          <Inputs grid={grid} gameOver={gameOver} />
+          <Inputs grid={grid} gameOver={gameOver} setColumn={setColumn} row={row}/>
           <Outputs clues={clues} />
         </div>
         <div className="color-keyboard-container">
@@ -84,7 +84,7 @@ function App() {
             onSubmit={ () => onSubmit() }
             onDelete={ () => onDelete() }
             disableSubmit={ grid[row].includes(NULL) }
-            disableDelete={ column === 0 }
+            disableDelete={ grid[row][column] === NULL}
           />
         </div>
       </main>

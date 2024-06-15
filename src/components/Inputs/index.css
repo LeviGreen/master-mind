@@ -12,21 +12,44 @@
 }
 
 .input-cell {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #ffffff;
   border: 2px solid #d3d6da;
-  font-family: "nyt-franklin";
-  width: 48px;
-  height: 48px;
+  box-sizing: border-box;
+  cursor: pointer;
   display: inline-flex;
   justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  line-height: 1;
-  font-weight: bold;
-  vertical-align: middle;
-  box-sizing: border-box;
-  color: var(--tile-text-color);
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
+  margin: 0;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  transition: all 250ms;
   user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 48px;
+  height: 48px;
+}
+
+.input-cell:hover,
+.input-cell:focus {
+  box-shadow: rgba(0, 0, 0, 0.4) 0 4px 12px;
+}
+
+.input-cell:hover {
+  transform: translateY(-1px);
+}
+
+.input-cell:active {
+  filter: brightness(95%);
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.input-cell:disabled {
+  border: 2px solid #e3e6ea;
+  color: #666666;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  transform: translateY(0px);
 }
