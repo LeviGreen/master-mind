@@ -1,7 +1,6 @@
 import Modal from 'react-modal';
 import { customStyles, confettiConfig } from "./constants";
-import { GRAY } from "../../constants";
-import KeyboardButton from '../ColorKeyboard/keyboardButton';
+import ModalButtons from "./modalButtons";
 import InputRow from "../Inputs/inputRow";
 import Confetti from 'react-dom-confetti';
 
@@ -20,7 +19,7 @@ function WinModal( { showWin, resetGame, answer, rowCount } ) {
           <h2>You Won!</h2>
           <InputRow row={answer}/>
           <p>You solved it in {rowCount} tries.</p>
-          <KeyboardButton color={GRAY} text="Play Random Game" onClick={() => resetGame()} />
+          <ModalButtons onClick={(mode) => resetGame(mode)}/>
         </Modal>
       </div>
     </>

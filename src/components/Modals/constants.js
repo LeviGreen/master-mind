@@ -6,6 +6,8 @@ export const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    maxWidth: '360px',
+    wordWrap: 'break-word'
   },
 };
 

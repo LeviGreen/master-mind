@@ -1,7 +1,6 @@
 import Modal from 'react-modal';
 import { customStyles } from "./constants";
-import { GRAY } from "../../constants";
-import KeyboardButton from '../ColorKeyboard/keyboardButton';
+import ModalButtons from "./modalButtons";
 import InputRow from "../Inputs/inputRow";
 
 function LoseModal( { showLose, resetGame, answer, dailyGame=false } ) {
@@ -14,7 +13,7 @@ function LoseModal( { showLose, resetGame, answer, dailyGame=false } ) {
         <h2>You Lost! 💩</h2>
         <InputRow row={answer}/>
         <p>Try again{dailyGame ? ' tomorrow.' : null}</p>
-        <KeyboardButton color={GRAY} text="Play Random Game" onClick={() => resetGame()} />
+        <ModalButtons onClick={(mode) => resetGame(mode)}/>
       </Modal>
   );
 }

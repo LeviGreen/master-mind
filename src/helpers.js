@@ -1,6 +1,24 @@
 import { BLACK, GRAY, KEY_COLORS, NULL } from "./constants";
 
-export function generateAnswer() {
+// answer contains 6 possible colors, without duplicates
+export function mediumAnswer() {
+  let answer = [];
+
+  while (answer.length < 4) {
+    const randomColor = KEY_COLORS[
+      Math.floor(Math.random() * KEY_COLORS.length)
+    ];
+
+    if (!answer.includes(randomColor)) {
+      answer.push(randomColor);
+    }
+  }
+
+  return answer;
+}
+
+// answer contains 6 possible colors, and may include duplicates
+export function hardAnswer() {
   let answer = [];
 
   for (let i = 0; i < 4; i++) {
@@ -14,10 +32,10 @@ export function generateAnswer() {
   return answer;
 }
 
-export function resetBoard() {
+export const resetBoard = (mode) => {
   return [
-    generateAnswer(),
-    // [KEY_COLORS[2], KEY_COLORS[2], KEY_COLORS[3], KEY_COLORS[0]], // for testing
+    mode,
+    // [KEY_COLORS[0], KEY_COLORS[0], KEY_COLORS[0], KEY_COLORS[0]], // for testing
     [NULL, NULL, NULL, NULL],
     [NULL, NULL, NULL, NULL],
     [NULL, NULL, NULL, NULL],

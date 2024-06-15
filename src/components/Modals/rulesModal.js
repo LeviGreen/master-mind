@@ -1,13 +1,11 @@
 import Modal from 'react-modal';
 import { customStyles } from "./constants";
-import { GRAY } from "../../constants";
-import KeyboardButton from '../ColorKeyboard/keyboardButton';
+import ModalButtons from "./modalButtons";
 
-function RulesModal( { showRules, setShowRules } ) {
+function RulesModal( { showRules, resetGame } ) {
   return (
       <Modal
         isOpen={showRules}
-        onRequestClose={() => setShowRules(false)}
         contentLabel="Game Rules"
         style={customStyles}
       >
@@ -15,14 +13,15 @@ function RulesModal( { showRules, setShowRules } ) {
         <h3>Objective</h3>
         <p>Guess the correct color code in 10 turns or less.</p>
         <h3>Rules</h3>
-        <p>1. The code is a 4-color sequence.</p>
-        <p>2. The colors can be in any order.</p>
-        <p>3. The colors can be any of the 6 available colors.</p>
-        <p>4. Duplicate colors are allowed.</p>
+        <p>The code is a 4-color sequence.</p>
+        <p>The colors can be in any order.</p>
         <h3>Scoring</h3>
         <p>Black peg: Correct color but wrong position.</p>
         <p>White peg: Correct color and position.</p>
-        <KeyboardButton color={GRAY} text="Start Game" onClick={() => setShowRules(false)} />
+        <h3>Modes</h3>
+        <p>Medium - 6 available colors, with no duplicates</p>
+        <p>Hard - 6 available colors, and duplicates are allowed</p>
+        <ModalButtons onClick={(mode) => resetGame(mode)}/>
       </Modal>
   );
 }

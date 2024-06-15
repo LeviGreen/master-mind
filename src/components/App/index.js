@@ -54,22 +54,22 @@ function App() {
     }
   }
 
-  const resetGame = () => {
+  const resetGame = (mode) => {
     setShowLose(false);
     setShowWin(false);
-    setShowRules(true);
+    setShowRules(false);
     setRow(1);
     setColumn(0);
-    setGrid(resetBoard());
+    setGrid(resetBoard(mode));
     setClues(resetClues());
     setGameOver(false);
   }
 
   return (
     <div className="App">
-      <RulesModal showRules={showRules} setShowRules={setShowRules}/>
-      <WinModal showWin={showWin} resetGame={resetGame} answer={grid[0]} rowCount={row}/>
-      <LoseModal showLose={showLose} resetGame={resetGame} answer={grid[0]}/>
+      <RulesModal showRules={showRules} resetGame={(mode) => resetGame(mode)}/>
+      <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]} rowCount={row}/>
+      <LoseModal showLose={showLose} resetGame={(mode) => resetGame(mode)} answer={grid[0]}/>
       <header className="App-header">
         <h1>Master Mind</h1>
       </header>
