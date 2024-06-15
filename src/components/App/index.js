@@ -47,7 +47,7 @@ function App() {
   }
 
   const onDelete = () => {
-    if (column >= 0 && column <= 4) {
+    if (column >= 0 && column < 4) {
       grid[row][column] = NULL;
       setColumn(column - 1);
     }
