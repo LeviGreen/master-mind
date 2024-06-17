@@ -1,5 +1,16 @@
 import { BLACK, GRAY, KEY_COLORS, WHITE } from "./constants";
 
+// answer contains 4 possible colors, without duplicates
+export function easyAnswer() {
+  let answer = [KEY_COLORS[0], KEY_COLORS[1], KEY_COLORS[2], KEY_COLORS[3]];
+  for (let i = answer.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [answer[i], answer[j]] = [answer[j], answer[i]];
+  }
+  console.log(answer);
+  return answer;
+}
+
 // answer contains 6 possible colors, without duplicates
 export function mediumAnswer() {
   let answer = [];
