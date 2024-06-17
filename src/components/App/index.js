@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./index.css";
 import ColorKeyboard from "../ColorKeyboard";
 import Inputs from "../Inputs";
+import ModeContext from './ModeContext';
 import RulesModal from "../Modals/rulesModal";
 import WinModal from "../Modals/winModal";
 import LoseModal from "../Modals/loseModal";
@@ -18,6 +19,7 @@ function App() {
   let [showRules, setShowRules] = useState(true);
   let [showWin, setShowWin] = useState(false);
   let [showLose, setShowLose] = useState(false);
+  let [easyMode, setEasyMode] = useState(false);
 
   const onColorClick = (color) => {
     if (column >= 0 && column < 4) {
@@ -65,29 +67,31 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <RulesModal showRules={showRules} resetGame={(mode) => resetGame(mode)}/>
-      <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]} rowCount={row}/>
-      <LoseModal showLose={showLose} resetGame={(mode) => resetGame(mode)} answer={grid[0]}/>
-      <header className="App-header">
-        <h1>Master Mind</h1>
-      </header>
-      <main className="App-module-game">
-        <div className="board-container">
-          <Inputs grid={grid} gameOver={gameOver} setColumn={setColumn} row={row}/>
-          <Outputs clues={clues} row={row}/>
-        </div>
-        <div className="color-keyboard-container">
-          <ColorKeyboard
-            onColorClick={ (color) => onColorClick(color) }
-            onSubmit={ () => onSubmit() }
-            onDelete={ () => onDelete() }
-            disableSubmit={ grid[row].includes(WHITE) }
-            disableDelete={ grid[row][column] === WHITE }
-          />
-        </div>
-      </main>
-    </div>
+    <ModeContext.Provider value={{ easyMode, setEasyMode }}>
+      <div className="App">
+        <RulesModal showRules={showRules} resetGame={(mode) => resetGame(mode)}/>
+        <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]} rowCount={row}/>
+        <LoseModal showLose={showLose} resetGame={(mode) => resetGame(mode)} answer={grid[0]}/>
+        <header className="App-header">
+          <h1>Master Mind</h1>
+        </header>
+        <main className="App-module-game">
+          <div className="board-container">
+            <Inputs grid={grid} gameOver={gameOver} setColumn={setColumn} row={row}/>
+            <Outputs clues={clues} row={row}/>
+          </div>
+          <div className="color-keyboard-container">
+            <ColorKeyboard
+              onColorClick={ (color) => onColorClick(color) }
+              onSubmit={ () => onSubmit() }
+              onDelete={ () => onDelete() }
+              disableSubmit={ grid[row].includes(WHITE) }
+              disableDelete={ grid[row][column] === WHITE }
+            />
+          </div>
+        </main>
+      </div>
+    </ModeContext.Provider>
   );
 }
 

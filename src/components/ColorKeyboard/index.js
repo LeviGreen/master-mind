@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import "./index.css";
 import KeyboardButton from "./keyboardButton";
 import { KEY_COLORS, KEY_TEXT } from "../../constants";
+import ModeContext from '../App/ModeContext';
 
 function ColorKeyboard({ onColorClick, onSubmit, onDelete, disableSubmit, disableDelete }) {
+  const { easyMode } = React.useContext(ModeContext);
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       switch(event.key) {
@@ -47,15 +50,17 @@ function ColorKeyboard({ onColorClick, onSubmit, onDelete, disableSubmit, disabl
     <div className="keyboard">
       <div className="keyboard-row">
         <KeyboardButton color={KEY_COLORS[0]} text={KEY_TEXT[0]} onClick={() => onColorClick(KEY_COLORS[0])}/>
-        <KeyboardButton color={KEY_COLORS[1]} text={KEY_TEXT[1]} onClick={() => onColorClick(KEY_COLORS[1])}/>
+        { !easyMode ? <KeyboardButton color={KEY_COLORS[1]} text={KEY_TEXT[1]} onClick={() => onColorClick(KEY_COLORS[1])}/> : null }
         <KeyboardButton color={KEY_COLORS[2]} text={KEY_TEXT[2]} onClick={() => onColorClick(KEY_COLORS[2])}/>
-        <KeyboardButton color="#d3d6da" text="ENT" onClick={() => onSubmit()} disabled={disableSubmit}/>
+      </div>
+      <div className="keyboard-row">
+        <KeyboardButton color={KEY_COLORS[3]} text={KEY_TEXT[3]} onClick={() => onColorClick(KEY_COLORS[3])}/>
+        <KeyboardButton color={KEY_COLORS[4]} text={KEY_TEXT[4]} onClick={() => onColorClick(KEY_COLORS[4])}/>
+        { !easyMode ? <KeyboardButton color={KEY_COLORS[5]} text={KEY_TEXT[5]} onClick={() => onColorClick(KEY_COLORS[5])}/> : null }
       </div>
       <div className="keyboard-row">
         <KeyboardButton color="#d3d6da" text="DEL" onClick={() => onDelete()} disabled={disableDelete}/>
-        <KeyboardButton color={KEY_COLORS[3]} text={KEY_TEXT[3]} onClick={() => onColorClick(KEY_COLORS[3])}/>
-        <KeyboardButton color={KEY_COLORS[4]} text={KEY_TEXT[4]} onClick={() => onColorClick(KEY_COLORS[4])}/>
-        <KeyboardButton color={KEY_COLORS[5]} text={KEY_TEXT[5]} onClick={() => onColorClick(KEY_COLORS[5])}/>
+        <KeyboardButton color="#d3d6da" text="ENT" onClick={() => onSubmit()} disabled={disableSubmit}/>
       </div>
     </div>
   );

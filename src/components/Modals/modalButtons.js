@@ -1,14 +1,23 @@
+import React, { useContext } from 'react';
 import { KEY_COLORS } from "../../constants";
 import KeyboardButton from '../ColorKeyboard/keyboardButton';
 import { easyAnswer, mediumAnswer, hardAnswer } from "../../helpers"
 import "./index.css";
+import ModeContext from '../App/ModeContext';
 
 function ModalButtons( { onClick } ) {
+  const { setEasyMode } = useContext(ModeContext);
+
+  const onModeClick = (easyMode, answer) => {
+    setEasyMode(easyMode);
+    onClick(answer)
+  }
+
   return (
     <div className="modal-buttons-container">
-      <KeyboardButton color={KEY_COLORS[3]} text="Easy" onClick={() => onClick(easyAnswer())} />
-      <KeyboardButton color={KEY_COLORS[2]} text="Medium" onClick={() => onClick(mediumAnswer())} />
-      <KeyboardButton color={KEY_COLORS[0]} text="Hard" onClick={() => onClick(hardAnswer())} />
+      <KeyboardButton color={KEY_COLORS[3]} text="Easy" onClick={() => onModeClick(true, easyAnswer())} />
+      <KeyboardButton color={KEY_COLORS[2]} text="Medium" onClick={() => onModeClick(false, mediumAnswer())} />
+      <KeyboardButton color={KEY_COLORS[0]} text="Hard" onClick={() => onModeClick(false, hardAnswer())} />
     </div>
   );
 }
