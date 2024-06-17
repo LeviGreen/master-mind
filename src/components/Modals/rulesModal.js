@@ -21,7 +21,11 @@ function RulesModal( { showRules, resetGame } ) {
         </h3>
         <p>White peg: Correct color but wrong position.</p>
         <p>Black peg: Correct color and position.</p>
-        <h3>Modes</h3>
+        <h3>
+          Modes
+          <span style={primaryBadge}>Updated!</span>
+        </h3>
+        <p>Easy - 4 available colors, with no duplicates</p>
         <p>Medium - 6 available colors, with no duplicates</p>
         <p>Hard - 6 available colors, and duplicates are allowed</p>
         <ModalButtons onClick={(mode) => resetGame(mode)}/>
