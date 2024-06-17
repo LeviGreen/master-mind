@@ -39,7 +39,7 @@ function App() {
       clues[row] = clueCode;
       setGameOver(true);
     } else if (row === 10) {
-      setShowLose(true)
+      setShowLose(true);
       setGameOver(true);
     } else {
       setRow(row + 1);
@@ -67,17 +67,17 @@ function App() {
   }
 
   return (
-    <MasterMindContext.Provider value={{ easyMode, setEasyMode }}>
+    <MasterMindContext.Provider value={{ easyMode, setEasyMode, row, column, setColumn }}>
       <div className="App">
         <RulesModal showRules={showRules} resetGame={(mode) => resetGame(mode)}/>
-        <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]} rowCount={row}/>
+        <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]}/>
         <LoseModal showLose={showLose} resetGame={(mode) => resetGame(mode)} answer={grid[0]}/>
         <header className="App-header">
           <h1>Master Mind</h1>
         </header>
         <main className="App-module-game">
           <div className="board-container">
-            <Inputs grid={grid} gameOver={gameOver} setColumn={setColumn} row={row}/>
+            <Inputs grid={grid} gameOver={gameOver}/>
             <Outputs clues={clues} row={row}/>
           </div>
           <div className="color-keyboard-container">

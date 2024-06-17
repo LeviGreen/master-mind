@@ -1,20 +1,24 @@
+import React, { useContext } from 'react';
 import "./index.css";
 import InputRow from "./inputRow";
+import MasterMindContext from '../MasterMindContext';
 
-function Inputs({ grid, gameOver, setColumn, row }) {
+function Inputs({ grid, gameOver }) {
+  const { row } = useContext(MasterMindContext);
+
   return (
     <div className="inputs">
-      <InputRow row={grid[0]} gameOver={gameOver} setColumn={setColumn} disabled={true}/>
-      { row >= 1 ? <InputRow row={grid[1]} setColumn={setColumn}/> : null}
-      { row >= 2 ? <InputRow row={grid[2]} setColumn={setColumn}/> : null}
-      { row >= 3 ? <InputRow row={grid[3]} setColumn={setColumn}/> : null}
-      { row >= 4 ? <InputRow row={grid[4]} setColumn={setColumn}/> : null}
-      { row >= 5 ? <InputRow row={grid[5]} setColumn={setColumn}/> : null}
-      { row >= 6 ? <InputRow row={grid[6]} setColumn={setColumn}/> : null}
-      { row >= 7 ? <InputRow row={grid[7]} setColumn={setColumn}/> : null}
-      { row >= 8 ? <InputRow row={grid[8]} setColumn={setColumn}/> : null}
-      { row >= 9 ? <InputRow row={grid[9]} setColumn={setColumn}/> : null}
-      { row >= 10 ? <InputRow row={grid[10]} setColumn={setColumn}/> : null}
+      <InputRow rowValue={grid[0]} gameOver={gameOver} disabled={true}/>
+      { row >= 1 ? <InputRow rowValue={grid[1]}/> : null}
+      { row >= 2 ? <InputRow rowValue={grid[2]}/> : null}
+      { row >= 3 ? <InputRow rowValue={grid[3]}/> : null}
+      { row >= 4 ? <InputRow rowValue={grid[4]}/> : null}
+      { row >= 5 ? <InputRow rowValue={grid[5]}/> : null}
+      { row >= 6 ? <InputRow rowValue={grid[6]}/> : null}
+      { row >= 7 ? <InputRow rowValue={grid[7]}/> : null}
+      { row >= 8 ? <InputRow rowValue={grid[8]}/> : null}
+      { row >= 9 ? <InputRow rowValue={grid[9]}/> : null}
+      { row >= 10 ? <InputRow rowValue={grid[10]}/> : null}
     </div>
   );
 }

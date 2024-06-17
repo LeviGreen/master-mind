@@ -11,7 +11,7 @@ function LoseModal( { showLose, resetGame, answer, dailyGame=false } ) {
         style={customStyles}
       >
         <h2>You Lost! 💩</h2>
-        <InputRow row={answer}/>
+        <InputRow rowValue={answer}/>
         <p>Try again{dailyGame ? ' tomorrow.' : null}</p>
         <ModalButtons onClick={(mode) => resetGame(mode)}/>
       </Modal>

@@ -1,7 +1,11 @@
+import React, { useContext } from 'react';
 import "./index.css";
 import OutputCell from "../Outputs/outputCell";
+import MasterMindContext from '../MasterMindContext';
 
-function Outputs({ clues, row }) {
+function Outputs({ clues }) {
+  const { row } = useContext(MasterMindContext);
+
   return (
     <div className="outputs">
       <OutputCell clue={clues[0]} />
