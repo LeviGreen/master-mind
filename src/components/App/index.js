@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./index.css";
 import ColorKeyboard from "../ColorKeyboard";
 import Inputs from "../Inputs";
-import ModeContext from './ModeContext';
+import MasterMindContext from '../MasterMindContext';
 import RulesModal from "../Modals/rulesModal";
 import WinModal from "../Modals/winModal";
 import LoseModal from "../Modals/loseModal";
@@ -67,7 +67,7 @@ function App() {
   }
 
   return (
-    <ModeContext.Provider value={{ easyMode, setEasyMode }}>
+    <MasterMindContext.Provider value={{ easyMode, setEasyMode }}>
       <div className="App">
         <RulesModal showRules={showRules} resetGame={(mode) => resetGame(mode)}/>
         <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]} rowCount={row}/>
@@ -91,7 +91,7 @@ function App() {
           </div>
         </main>
       </div>
-    </ModeContext.Provider>
+    </MasterMindContext.Provider>
   );
 }
 

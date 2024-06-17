@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import "./index.css";
 import KeyboardButton from "./keyboardButton";
 import { KEY_COLORS, KEY_TEXT } from "../../constants";
-import ModeContext from '../App/ModeContext';
+import MasterMindContext from '../MasterMindContext';
 
 function ColorKeyboard({ onColorClick, onSubmit, onDelete, disableSubmit, disableDelete }) {
-  const { easyMode } = React.useContext(ModeContext);
+  const { easyMode } = React.useContext(MasterMindContext);
 
   useEffect(() => {
     const handleKeyDown = (event) => {

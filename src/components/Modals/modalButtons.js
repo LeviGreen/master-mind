@@ -3,10 +3,10 @@ import { KEY_COLORS } from "../../constants";
 import KeyboardButton from '../ColorKeyboard/keyboardButton';
 import { easyAnswer, mediumAnswer, hardAnswer } from "../../helpers"
 import "./index.css";
-import ModeContext from '../App/ModeContext';
+import MasterMindContext from '../MasterMindContext';
 
 function ModalButtons( { onClick } ) {
-  const { setEasyMode } = useContext(ModeContext);
+  const { setEasyMode } = useContext(MasterMindContext);
 
   const onModeClick = (easyMode, answer) => {
     setEasyMode(easyMode);
