@@ -16,6 +16,6 @@ export const KEY_TEXT = [
   "c",
 ];
 
-export const NULL = "#ffffff";
+export const WHITE = "#ffffff";
 export const GRAY = "#d3d6da";
 export const BLACK = "#000000";

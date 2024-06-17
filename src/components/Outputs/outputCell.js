@@ -1,8 +1,8 @@
 import "./index.css";
-import { GRAY, NULL } from "../../constants";
+import { GRAY, WHITE } from "../../constants";
 
 function OutputRow({ clue }) {
-  let rowColor = clue.length === 4 && clue.every((value) => value === GRAY) ? NULL : GRAY;
+  let rowColor = clue.length === 4 && clue.every((value) => value === GRAY) ? WHITE : GRAY;
   return (
     <div className="output-row" style={{ backgroundColor: rowColor }}>
       {

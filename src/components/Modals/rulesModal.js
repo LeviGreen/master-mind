@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { customStyles } from "./constants";
+import { customStyles, primaryBadge } from "./constants";
 import ModalButtons from "./modalButtons";
 
 function RulesModal( { showRules, resetGame } ) {
@@ -15,9 +15,12 @@ function RulesModal( { showRules, resetGame } ) {
         <h3>Rules</h3>
         <p>The code is a 4-color sequence.</p>
         <p>The colors can be in any order.</p>
-        <h3>Scoring</h3>
-        <p>Black peg: Correct color but wrong position.</p>
-        <p>White peg: Correct color and position.</p>
+        <h3>
+          Scoring
+          <span style={primaryBadge}>Updated!</span>
+        </h3>
+        <p>White peg: Correct color but wrong position.</p>
+        <p>Black peg: Correct color and position.</p>
         <h3>Modes</h3>
         <p>Medium - 6 available colors, with no duplicates</p>
         <p>Hard - 6 available colors, and duplicates are allowed</p>

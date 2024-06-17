@@ -18,3 +18,12 @@ export const confettiConfig = {
   elementCount: 1000,
   decay: 0.9,
 };
+
+export const primaryBadge = {
+  marginLeft: '10px',
+  padding: '2px 5px',
+  backgroundColor: '#00cc11',
+  color: '#fff',
+  borderRadius: '5px',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+}

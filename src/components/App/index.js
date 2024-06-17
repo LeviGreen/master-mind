@@ -6,7 +6,7 @@ import RulesModal from "../Modals/rulesModal";
 import WinModal from "../Modals/winModal";
 import LoseModal from "../Modals/loseModal";
 import Outputs from "../Outputs";
-import { NULL } from "../../constants";
+import { WHITE, BLACK } from "../../constants";
 import { resetBoard, resetClues, getClue } from "../../helpers";
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
     let answer = grid[0].slice();
     let clueCode = getClue(guess, answer);
 
-    if (clueCode.length === 4 && clueCode.every((value) => value === NULL)){
+    if (clueCode.length === 4 && clueCode.every((value) => value === BLACK)){
       setShowWin(true);
       clues[row] = clueCode;
       setGameOver(true);
@@ -48,7 +48,7 @@ function App() {
 
   const onDelete = () => {
     if (column >= 0 && column < 4) {
-      grid[row][column] = NULL;
+      grid[row][column] = WHITE;
       setColumn(column - 1);
     }
   }
@@ -82,8 +82,8 @@ function App() {
             onColorClick={ (color) => onColorClick(color) }
             onSubmit={ () => onSubmit() }
             onDelete={ () => onDelete() }
-            disableSubmit={ grid[row].includes(NULL) }
-            disableDelete={ grid[row][column] === NULL }
+            disableSubmit={ grid[row].includes(WHITE) }
+            disableDelete={ grid[row][column] === WHITE }
           />
         </div>
       </main>

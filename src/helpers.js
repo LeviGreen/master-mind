@@ -1,4 +1,4 @@
-import { BLACK, GRAY, KEY_COLORS, NULL } from "./constants";
+import { BLACK, GRAY, KEY_COLORS, WHITE } from "./constants";
 
 // answer contains 6 possible colors, without duplicates
 export function mediumAnswer() {
@@ -36,16 +36,16 @@ export const resetBoard = (mode) => {
   return [
     mode,
     // [KEY_COLORS[0], KEY_COLORS[0], KEY_COLORS[0], KEY_COLORS[0]], // for testing
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
-    [NULL, NULL, NULL, NULL],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
+    [WHITE, WHITE, WHITE, WHITE],
   ]
 }
 
@@ -67,24 +67,24 @@ export function resetClues() {
 
 export function getClue(guess, answer) {
   let clue = [];
-  let whiteArr = [];
+  let blackArr = [];
   // find where color and position are correct
   for (let index = 0; index < 4; index++) {
     if (guess[index] === answer[index]) {
-      clue.unshift(NULL);
-      whiteArr.unshift(index);
+      clue.unshift(BLACK);
+      blackArr.unshift(index);
     }
   };
   // remove correct guesses from arrays
-  whiteArr.forEach((index) => {
+  blackArr.forEach((index) => {
     guess.splice(index, 1);
     answer.splice(index, 1);
   })
   // find where color is correct but position is wrong
   guess.forEach((color) => {
     if (answer.includes(color)) {
-      clue.push(BLACK);
-      answer[answer.indexOf(color)] = NULL;
+      clue.push(WHITE);
+      answer[answer.indexOf(color)] = BLACK;
     }
   });
 
