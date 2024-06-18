@@ -7,6 +7,18 @@ export const KEY_COLORS = [
   "#b4a8ff",
 ];
 
+export const hexToEmoji = {
+  "#fc716b": "🟥",
+  "#fb9b00": "🟧",
+  "#f7da21": "🟨",
+  "#00cc11": "🟩",
+  "#4d88f9": "🟦",
+  "#b4a8ff": "🟪",
+  "#ffffff": "⚪",
+  "#d3d6da": "🌫️",
+  "#000000": "⚫"
+};
+
 export const KEY_TEXT = [
   "a",
   "s",
