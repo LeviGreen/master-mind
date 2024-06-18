@@ -18,16 +18,17 @@
 
 .App-module-game {
   width: 100%;
-  max-width: 500px;
+  max-width: 360px;
   margin: 0 auto;
-  height: calc(100% - 40px);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  
 }
 
 .board-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-grow: 1;
   overflow: hidden;
@@ -39,7 +40,5 @@
   flex-grow: 1;
   overflow: hidden;
   padding: 10px;
-  height: 200px;
-  margin: 0 8px;
   user-select: none;
 }

@@ -1,7 +1,7 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -17,18 +17,16 @@
   border: 2px solid #d3d6da;
   box-sizing: border-box;
   cursor: pointer;
-  display: inline-flex;
   justify-content: center;
   margin: 0;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
   transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: 48px;
-  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .input-cell:hover,
