@@ -20,6 +20,7 @@ function App() {
   let [showWin, setShowWin] = useState(false);
   let [showLose, setShowLose] = useState(false);
   let [mode, setMode] = useState(MEDIUM);
+  let [daily, setDaily] = useState(false);
 
   const onColorClick = (color) => {
     if (column >= 0 && column < 4) {
@@ -67,7 +68,7 @@ function App() {
   }
 
   return (
-    <MasterMindContext.Provider value={{ mode, setMode, row, column, setColumn }}>
+    <MasterMindContext.Provider value={{ mode, setMode, row, column, setColumn, daily, setDaily }}>
       <div className="App">
         <RulesModal showRules={showRules} resetGame={(mode) => resetGame(mode)}/>
         <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]} clues={clues}/>
