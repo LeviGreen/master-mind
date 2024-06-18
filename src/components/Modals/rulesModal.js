@@ -15,6 +15,7 @@ function RulesModal( { showRules, resetGame } ) {
         <h3>Rules</h3>
         <p>The code is a 4-color sequence.</p>
         <p>The colors can be in any order.</p>
+        <p>The scoring pegs are in no particular order.</p>
         <h3>
           Scoring
           <span style={primaryBadge}>Updated!</span>
