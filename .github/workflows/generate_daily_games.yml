@@ -19,4 +19,4 @@ jobs:
         node-version: '14'
 
     - name: Run script
-      run: node dailyGameGenerator.js
+      run: node src/dailyGameGenerator.js
