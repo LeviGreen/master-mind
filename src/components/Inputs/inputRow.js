@@ -1,7 +1,11 @@
+import React, { useContext } from 'react';
 import "./index.css";
 import { GRAY } from "../../constants";
+import MasterMindContext from '../MasterMindContext';
 
-function InputRow({ rowValue, gameOver = true, setColumn, disabled }) {
+function InputRow({ rowValue, gameOver = true, disabled }) {
+  const { setColumn } = useContext(MasterMindContext);
+
   let row0 = gameOver ? rowValue[0] : GRAY;
   let row1 = gameOver ? rowValue[1] : GRAY;
   let row2 = gameOver ? rowValue[2] : GRAY;
