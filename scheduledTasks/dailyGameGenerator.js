@@ -1,13 +1,6 @@
 const fs = require('fs');
 
-const KEY_COLORS = [
-  "#fc716b",
-  "#fb9b00",
-  "#f7da21",
-  "#00cc11",
-  "#4d88f9",
-  "#b4a8ff",
-];
+const INDICES = [0, 1, 2, 3, 4, 5];
 
 let data = {};
 let easyArray = [];
@@ -16,7 +9,7 @@ let hardArray = [];
 
 // answer contains 4 possible colors, without duplicates
 function easyAnswer() {
-  let answer = [KEY_COLORS[0], KEY_COLORS[2], KEY_COLORS[3], KEY_COLORS[4]];
+  let answer = [0, 2, 3, 4];
   for (let i = answer.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [answer[i], answer[j]] = [answer[j], answer[i]];
@@ -29,8 +22,8 @@ function mediumAnswer() {
   let answer = [];
 
   while (answer.length < 4) {
-    const randomColor = KEY_COLORS[
-      Math.floor(Math.random() * KEY_COLORS.length)
+    const randomColor = INDICES[
+      Math.floor(Math.random() * INDICES.length)
     ];
 
     if (!answer.includes(randomColor)) {
@@ -46,8 +39,8 @@ function hardAnswer() {
 
   for (let i = 0; i < 4; i++) {
       answer.push(
-      KEY_COLORS[
-          Math.floor(Math.random() * KEY_COLORS.length)
+      INDICES[
+          Math.floor(Math.random() * INDICES.length)
       ]
       );
   }
@@ -100,9 +93,9 @@ function loadDailyGames() {
       } else {
         const key = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
         data[key] = {
-          easy: easyArray.pop(),
-          medium: mediumArray.pop(),
-          hard: hardArray.pop()
+          Easy: easyArray.pop(),
+          Medium: mediumArray.pop(),
+          Hard: hardArray.pop()
         };
         // reload arrays if they are empty
         if (easyArray.length === 0) {
