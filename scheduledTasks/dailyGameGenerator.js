@@ -84,6 +84,8 @@ function loadDailyGames() {
   loadMediumArray();
   loadHardArray();
 
+  const year = new Date().getFullYear();
+
   for (let month = 1; month <= 12; month++) {
     for (let day = 1; day <= 31; day++) {
       if (month === 2 && day > 29) {
@@ -91,7 +93,7 @@ function loadDailyGames() {
       } else if ((month === 4 || month === 6 || month === 9 || month === 11) && day > 30) {
         break;
       } else {
-        const key = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+        const key = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}-${year}`;
         data[key] = {
           Easy: easyArray.pop(),
           Medium: mediumArray.pop(),
