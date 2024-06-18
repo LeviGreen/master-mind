@@ -29,4 +29,5 @@ jobs:
         git config --local user.name "GitHub Action"
         git add -A
         git commit -m "Update JSON file" || exit 0
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/LeviGreen/master-mind.git
         git push
