@@ -12,7 +12,7 @@ function WinModal( { showWin, resetGame, answer } ) {
   const [showToast, setShowToast] = useState(false);
   
   function scoreCopy() {
-    return `I solved Mastermind in ${row} tries!
+    return `I solved Master Mind in ${row} tries!
 The answer was ${hexToEmoji[answer[0]]}${hexToEmoji[answer[1]]}${hexToEmoji[answer[2]]}${hexToEmoji[answer[3]]}
 Play at https://levigreen.github.io/master-mind`;
   }
