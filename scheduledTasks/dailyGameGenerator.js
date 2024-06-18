@@ -38,43 +38,43 @@ function hardAnswer() {
   let answer = [];
 
   for (let i = 0; i < 4; i++) {
-      answer.push(
+    answer.push(
       INDICES[
-          Math.floor(Math.random() * INDICES.length)
+        Math.floor(Math.random() * INDICES.length)
       ]
-      );
+    );
   }
 
   return answer;
 }
-// load array with 256 unique easy answers
+// load array with 24 unique easy answers
 function loadEasyArray() {
-  for (let i = 0; i < 256; i++) {
-    let answer = easyAnswer();
+  for (let i = 0; i < 24; i++) {
+    let answer = easyAnswer().join();
     while (easyArray.includes(answer)) {
-      answer = easyAnswer();
+      answer = easyAnswer().join();
     }
-    easyArray.push(easyAnswer());
+    easyArray.push(answer);
   }
 }
 // load array with 360 unique medium answers
 function loadMediumArray() {
   for (let i = 0; i < 360; i++) {
-    let answer = mediumAnswer();
+    let answer = mediumAnswer().join();
     while (mediumArray.includes(answer)) {
-      answer = mediumAnswer();
+      answer = mediumAnswer().join();
     }
-    mediumArray.push(mediumAnswer());
+    mediumArray.push(answer);
   }
 }
 // load array with 366 unique hard answers
 function loadHardArray() {
   for (let i = 0; i < 366; i++) {
-    let answer = hardAnswer();
+    let answer = hardAnswer().join();
     while (hardArray.includes(answer)) {
-      answer = hardAnswer();
+      answer = hardAnswer().join();
     }
-    hardArray.push(hardAnswer());
+    hardArray.push(answer);
   }
 }
 
