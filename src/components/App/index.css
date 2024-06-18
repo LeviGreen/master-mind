@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 }
 
 .board-container {
@@ -41,4 +40,18 @@
   overflow: hidden;
   padding: 10px;
   user-select: none;
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 22px;
+    font-size: small;
+  }
+  
+  .board-container,
+  .color-keyboard-container {
+    padding: 5px;
+  }
 }

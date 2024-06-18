@@ -57,3 +57,9 @@
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   transform: translateY(0px);
 }
+
+@media (max-width: 480px) {
+  .keyboard-button {
+    width: 100%;
+  }
+}
