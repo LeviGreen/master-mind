@@ -52,8 +52,6 @@ function ColorKeyboard({ onColorClick, onSubmit, onDelete, disableSubmit, disabl
         <KeyboardButton color={KEY_COLORS[0]} text={KEY_TEXT[0]} onClick={() => onColorClick(KEY_COLORS[0])}/>
         { mode != EASY ? <KeyboardButton color={KEY_COLORS[1]} text={KEY_TEXT[1]} onClick={() => onColorClick(KEY_COLORS[1])}/> : null }
         <KeyboardButton color={KEY_COLORS[2]} text={KEY_TEXT[2]} onClick={() => onColorClick(KEY_COLORS[2])}/>
-      </div>
-      <div className="keyboard-row">
         <KeyboardButton color={KEY_COLORS[3]} text={KEY_TEXT[3]} onClick={() => onColorClick(KEY_COLORS[3])}/>
         <KeyboardButton color={KEY_COLORS[4]} text={KEY_TEXT[4]} onClick={() => onColorClick(KEY_COLORS[4])}/>
         { mode != EASY ? <KeyboardButton color={KEY_COLORS[5]} text={KEY_TEXT[5]} onClick={() => onColorClick(KEY_COLORS[5])}/> : null }

@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  height: 100%;
+  position: relative;
 }
 
 .App-header {
@@ -17,10 +18,11 @@
 
 .App-module-game {
   width: 100%;
+  max-width: 500px;
   margin: 0 auto;
+  height: calc(100% - 40px);
   display: flex;
   flex-direction: column;
-  
 }
 
 .board-container {
@@ -34,10 +36,10 @@
 }
 
 .color-keyboard-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-grow: 1;
   overflow: hidden;
   padding: 10px;
+  height: 200px;
+  margin: 0 8px;
+  user-select: none;
 }
