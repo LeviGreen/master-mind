@@ -1,4 +1,6 @@
 import { BLACK, GRAY, KEY_COLORS, WHITE } from "./constants";
+import moment from 'moment';
+import dailyGames from './dailyGames.json';
 
 // answer contains 4 possible colors, without duplicates
 export function easyAnswer() {
@@ -41,6 +43,20 @@ export function hardAnswer() {
   }
 
   return answer;
+}
+
+// get today's daily game based on mode
+export function dailyAnswer(mode) {
+  const today = todayDate();
+  const indexArr = dailyGames[today][mode];
+
+  return [
+    KEY_COLORS[indexArr[0]], KEY_COLORS[indexArr[1]], KEY_COLORS[indexArr[2]], KEY_COLORS[indexArr[3]]
+  ];
+}
+
+export function todayDate() {
+  return moment().format('MM-DD-YYYY');
 }
 
 export const resetBoard = (mode) => {
