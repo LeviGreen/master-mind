@@ -21,7 +21,7 @@ jobs:
         node-version: '14'
 
     - name: Run script
-      run: node src/dailyGameGenerator.js
+      run: node scheduledTasks/dailyGameGenerator.js
 
     - name: Commit and push changes
       run: |

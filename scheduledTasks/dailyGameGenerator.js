@@ -115,7 +115,7 @@ function loadDailyGames() {
     }
   }
 
-  fs.writeFile('./src/dailyGames.json', JSON.stringify(data, null, 2), (err) => {
+  fs.writeFile('src/dailyGames.json', JSON.stringify(data, null, 2), (err) => {
     if (err) throw err;
     console.log('Data written to file');
   });
