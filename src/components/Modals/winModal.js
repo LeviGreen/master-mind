@@ -1,20 +1,30 @@
 import React, { useContext, useState } from 'react';
 import Modal from 'react-modal';
 import { customStyles, confettiConfig, primaryBadge } from "./constants";
-import { hexToEmoji } from "../../constants";
+import { hexToEmoji, GRAY, URI } from "../../constants";
 import ModalButtons from "./modalButtons";
 import InputRow from "../Inputs/inputRow";
 import Confetti from 'react-dom-confetti';
 import MasterMindContext from '../MasterMindContext';
 
-function WinModal( { showWin, resetGame, answer } ) {
-  const { row } = useContext(MasterMindContext);
+function WinModal( { showWin, resetGame, answer, clues } ) {
+  const { row, mode } = useContext(MasterMindContext);
   const [showToast, setShowToast] = useState(false);
-  
+
   function scoreCopy() {
-    return `I solved Master Mind in ${row} tries!
-The answer was ${hexToEmoji[answer[0]]}${hexToEmoji[answer[1]]}${hexToEmoji[answer[2]]}${hexToEmoji[answer[3]]}
-Play at https://levigreen.github.io/master-mind`;
+    let text = `MasterMind - ${mode} - ${row}/10\n`
+    clues.forEach((clue, index) => {
+      if (clue.length === 4 && clue.every((value) => value === GRAY)) {
+        return;
+      }
+
+      clue.forEach((color) => {
+        text = text + hexToEmoji[color];
+      })
+      text = text + "\n";
+    })
+    text = text + URI;
+    return text;
   }
 
   const handleCopyClick = async () => {

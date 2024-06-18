@@ -7,7 +7,7 @@ import RulesModal from "../Modals/rulesModal";
 import WinModal from "../Modals/winModal";
 import LoseModal from "../Modals/loseModal";
 import Outputs from "../Outputs";
-import { WHITE, BLACK } from "../../constants";
+import { WHITE, BLACK, MEDIUM } from "../../constants";
 import { resetBoard, resetClues, getClue } from "../../helpers";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   let [showRules, setShowRules] = useState(true);
   let [showWin, setShowWin] = useState(false);
   let [showLose, setShowLose] = useState(false);
-  let [easyMode, setEasyMode] = useState(false);
+  let [mode, setMode] = useState(MEDIUM);
 
   const onColorClick = (color) => {
     if (column >= 0 && column < 4) {
@@ -67,10 +67,10 @@ function App() {
   }
 
   return (
-    <MasterMindContext.Provider value={{ easyMode, setEasyMode, row, column, setColumn }}>
+    <MasterMindContext.Provider value={{ mode, setMode, row, column, setColumn }}>
       <div className="App">
         <RulesModal showRules={showRules} resetGame={(mode) => resetGame(mode)}/>
-        <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]}/>
+        <WinModal showWin={showWin} resetGame={(mode) => resetGame(mode)} answer={grid[0]} clues={clues}/>
         <LoseModal showLose={showLose} resetGame={(mode) => resetGame(mode)} answer={grid[0]}/>
         <header className="App-header">
           <h1>Master Mind</h1>
