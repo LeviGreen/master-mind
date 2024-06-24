@@ -48,7 +48,7 @@ export function hardAnswer() {
 // get today's daily game based on mode
 export function dailyAnswer(mode) {
   const today = todayDate();
-  const indexArr = dailyGames[today][mode].split(',');
+  const indexArr = dailyGames[today][mode];
 
   return [
     KEY_COLORS[indexArr[0].toString()],
