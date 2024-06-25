@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
 import Modal from 'react-modal';
+import Confetti from 'react-dom-confetti';
+import './index.css'; 
 import { customStyles, confettiConfig, primaryBadge } from "./constants";
 import { hexToEmoji, GRAY, URI } from "../../constants";
 import { todayDate }  from "../../helpers";
 import ModalButtons from "./modalButtons";
 import InputRow from "../Inputs/inputRow";
-import Confetti from 'react-dom-confetti';
 import MasterMindContext from '../MasterMindContext';
 
 function WinModal( { showWin, resetGame, answer, clues } ) {
@@ -58,7 +59,7 @@ function WinModal( { showWin, resetGame, answer, clues } ) {
           <h2>You Won!</h2>
           <InputRow rowValue={answer}/>
           <p>You solved it in {row} tries.</p>
-          <a href="#" onClick={handleCopyClick}>Share Score</a> {showToast && <span style={primaryBadge}>Copied!</span>}
+          <button type="button" className="link-button" onClick={handleCopyClick} >Share Score</button> {showToast && <span style={primaryBadge}>Copied!</span>}
           <ModalButtons onClick={(mode) => resetGame(mode)}/>
         </Modal>
       </div>

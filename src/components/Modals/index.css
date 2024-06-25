@@ -10,3 +10,21 @@
   max-width: 80vh;
   overflow: auto;
 }
+
+.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  color: blue;
+  font-size: medium;
+}
+.link-button:focus {
+  color: purple;
+}
+.link-button:visited {
+  color: purple;
+}
