@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+# This workflow is triggered on pushes to the master branch and also allows for manual triggers.
+on:
+  push:
+    branches:
+      - master  # Set this to your default branch if it's not master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch: # Allows you to manually trigger the workflow from GitHub UI
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # The type of runner that the job will run on
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Set this to the node version you are using
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+      # Installs dependencies defined in package.json
+
+    - name: Build
+      run: npm run build
+      # Builds your site using the build script defined in package.json
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+        # Deploys the content of the build directory to GitHub Pages
