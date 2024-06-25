@@ -9,9 +9,6 @@
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  padding: 0 var(--header-padding-x);
-  height: var(--header-height);
-  color: var(--color-tone-1);
   border-top: 1px solid #555555;
   border-bottom: 2px solid #555555;
 }
@@ -52,6 +49,6 @@
   
   .board-container,
   .color-keyboard-container {
-    padding: 5px;
+    padding: 10px;
   }
 }
