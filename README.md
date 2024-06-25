@@ -1,5 +1,8 @@
 # Master Mind
 
+![Screenshot 2024-06-25 at 5 03 43 PM](https://github.com/LeviGreen/master-mind/assets/52007192/b6fb9909-99f6-4406-81a7-03fd42e917ab)
+
+
 This is a React App for the game of Master Mind, a classic code-breaking game where one player tries to guess the code set by another within a certain number of guesses. The game is built using React, a popular JavaScript library for building user interfaces, along with HTML and CSS for styling.
 
 ## How to Play
