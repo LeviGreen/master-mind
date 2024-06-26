@@ -48,7 +48,7 @@ function WinModal( { showWin, resetGame, answer, clues } ) {
   return (
     <>
       <div style={{position: 'relative', zIndex: 1000}}>
-        <Confetti active={ showWin } config={ confettiConfig }/>
+        <Confetti active={ showWin } config={ {...confettiConfig, colors:answer} }/>
       </div>
       <div style={{position: 'relative', zIndex: 999}}>
         <Modal
